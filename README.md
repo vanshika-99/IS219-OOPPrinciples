@@ -1,7 +1,12 @@
 5 SOLID Javascript Principles: 
 
 1. Single Responsibility: The functions you implement in your code should only do one thing. 
-You should create a new function for each separate task you want your code to do.
+You should create a new function for each separate task you want your code to do. 
+
+static Create(a, b, op){
+        return new Calculation(a, b, op);
+    }
+
 
 2. Open-Closed: Your code should be open to extension, but closed for modification. 
 You should not need to modify your pre-existing code if you wanted to extend it.
