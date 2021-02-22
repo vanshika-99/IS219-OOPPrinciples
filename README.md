@@ -3,7 +3,7 @@
 1. Single Responsibility: The functions you implement in your code should only do one thing. 
 You should create a new function for each separate task you want your code to do. 
 
-static Create(a, b, op){
+    static Create(a, b, op){
         return new Calculation(a, b, op);
     }
 
