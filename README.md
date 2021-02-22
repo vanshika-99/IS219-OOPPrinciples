@@ -22,8 +22,8 @@ Instead of changing a pre-existing array of drinks, this function serves as an e
     public class SeaPets extends Pets {
         public void underwater() {}
     } 
-    ppublic class Fish extends SeaPets{}    
-    public class Dogs extends Pets{}
+    public class Fish extends SeaPets {}    
+    public class Dogs extends Pets {}
 In this example, I used pets. Fish belong to the SeaPets{} class because they live underwater. 
 Dogs on the other hand, do not live underwater, so they belong to the Pets{} class.  
 
