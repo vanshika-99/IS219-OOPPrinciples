@@ -18,7 +18,14 @@ Instead of changing a pre-existing array of drinks, this function serves as an e
 
 *Liskov Substitution*: It states that functions that use pointers to base classes must be able to use objects of derived classes without even knowing it. 
 
-    
+    public class Pets {}
+    public class SeaPets extends Pets {
+        public void underwater() {}
+    } 
+    ppublic class Fish extends SeaPets{}    
+    public class Dogs extends Pets{}
+In this example, I used pets. Fish belong to the SeaPets{} class because they live underwater. 
+Dogs on the other hand, do not live underwater, so they belong to the Pets{} class.  
 
 *Interface Segregation*: Users should not be forced to include or depend on unnecessary interfaces. 
 If they are not going to use those interfaces in the first place, they should have the option to leave them out.
