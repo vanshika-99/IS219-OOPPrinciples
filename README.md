@@ -1,7 +1,58 @@
 [![Coverage Status](https://coveralls.io/repos/github/vanshika-99/IS219-OOPPrinciples/badge.svg?branch=master)](https://coveralls.io/github/vanshika-99/IS219-OOPPrinciples?branch=master)
 [![Build Status](https://travis-ci.org/vanshika-99/IS219-OOPPrinciples.svg?branch=master)](https://travis-ci.org/vanshika-99/IS219-OOPPrinciples)
 
+**OOP Design Patterns**
 
+**Creational**
+
+*Builder:* This design pattern allows you to construct complex objects one step at a time.
+This means that you should create a base class and extend it by adding subclasses for any other necessary parameters.
+This can become complicated quickly, so one solution to that is to create separate objects, known as builders.
+
+    function Quotient (a, b) {
+        return a / b;
+    }
+    
+    module.exports = Quotient;
+This specific function is only for finding the quotient in the calculator function. 
+For any other operations in the calculator function, you would need to create separate classes or functions.
+
+**Structural**
+
+*Decorator:* Allows you to new behaviors to objects. These objects are located in special wrapper objects.
+The new behaviors that you add are only extensions, and therefore can be removed whenever they are not needed. 
+
+    class Calculator {
+        static Calculations = [];
+    
+        static Sum(a, b) {
+            let calculation = Calculation.Create(a, b, Sum);
+            return calculation;
+        }
+    
+        static Difference(a, b) {
+            let calculation = Calculation.Create(a, b, Difference);
+            return calculation;
+        }
+This Calculator class has other subclasses wrapped within it. There are multiple subclasses used here, one for each operation.
+For example, the static Sum class is used only to find the sum of two numbers. 
+
+**Behavioral**
+
+*Strategy:* Allows you to create different classes for specific objects.
+The main class that you create should just reference the other classes or strategies in the code.
+
+    class City {
+        constructor(data = null) {
+            if(data) {
+                this.id = data.id;
+                this.city = data.city;
+                this.city_ascii = data.city_ascii;
+                this.lat = data.lat;
+            }
+        }
+    }  
+This class references several strategies, such as this.city_ascii.  
 
 
 **5 SOLID Javascript Principles:** 
