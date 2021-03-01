@@ -9,13 +9,27 @@
 This means that you should create a base class and extend it by adding subclasses for any other necessary parameters.
 This can become complicated quickly, so one solution to that is to create separate objects, known as builders.
 
-    function Quotient (a, b) {
-        return a / b;
-    }
+    class Calculation {
+        constructor(a, b, op) {
+            this.a = a;
+            this.b = b;
+            this.op = op;
+        }
     
-    module.exports = Quotient;
-This specific function is only for finding the quotient in the calculator function. 
-For any other operations in the calculator function, you would need to create separate classes or functions.
+        //Factory function: single responsibility
+        static Create(a, b, op){
+            return new Calculation(a, b, op);
+        }
+    
+        GetResults() {
+            return this.op(this.a,this.b);
+        }
+    }
+    module.exports = Calculation;
+The Calculation.js is the main class in this example. 
+If we wanted to access the different operations our calculator has, we would have to go to the separate functions that the op variable points to.
+For example, if we wanted to return the sum operator, the op would call upon the addition function.
+
 
 **Structural**
 
