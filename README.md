@@ -33,7 +33,7 @@ For example, if we wanted to return the sum operator, the op would call upon the
 
 **Structural**
 
-*Decorator:* Allows you to new behaviors to objects. These objects are located in special wrapper objects.
+*Decorator:* Allows you to add new behaviors to objects. These objects are located in special wrapper objects.
 The new behaviors that you add are only extensions, and therefore can be removed whenever they are not needed. 
 
     class Calculator {
