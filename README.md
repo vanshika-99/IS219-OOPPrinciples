@@ -33,6 +33,8 @@ This can become complicated quickly, so one solution to that is to create separa
             return this.calculation;
         } 
     }
+    
+    let calculation = new CalculationBuilder('basic operations').setProduct('3', '6', op).setSum('3', '6', op).build()
 
 **Structural**
 
