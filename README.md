@@ -10,63 +10,57 @@ This means that you should create a base class and extend it by adding subclasse
 This can become complicated quickly, so one solution to that is to create separate objects, known as builders.
 
     class Calculation {
-        constructor(a, b, op) {
-            this.a = a;
-            this.b = b;
-            this.op = op;
-        }
-    
-        //Factory function: single responsibility
-        static Create(a, b, op){
-            return new Calculation(a, b, op);
-        }
-    
-        GetResults() {
-            return this.op(this.a,this.b);
+        constructor(a, b, op) { 
+        this.a = a;
+        this.b = b;
+        this.op = op;
         }
     }
-    module.exports = Calculation;
-The Calculation.js is the main class in this example. 
-If we wanted to access the different operations our calculator has, we would have to go to the separate functions that the op variable points to.
-For example, if we wanted to return the sum operator, the op would call upon the addition function.
-
+    
+    class CalculationBuilder { 
+        constructor(operation) { 
+            this.calculation = new Calculation(operation);
+        }
+        setProduct(product) { 
+            this.calculation.product = product;
+            return this;
+        }
+        setSum(sum) { 
+            this.calculation.sum = sum;
+            return this; 
+        }
+        build() {
+            return this.calculation;
+        } 
+    }
 
 **Structural**
 
-*Decorator:* Allows you to add new behaviors to objects. These objects are located in special wrapper objects.
-The new behaviors that you add are only extensions, and therefore can be removed whenever they are not needed. 
+*Facade:* Helps provide a simpler interface for the client. It does so by hiding all the complexities of the code.  
+It shows the user an easier way to implement a method, in this case the product method in the calculator code.
 
-    class Calculator {
-        static Calculations = [];
+    Sum(a, b) { 
+        this.AddCalculation(new Calculation(a, b, Sum);
+        return this.GetLastCalcuation();
+    }
     
-        static Sum(a, b) {
-            let calculation = Calculation.Create(a, b, Sum);
-            return calculation;
-        }
-    
-        static Difference(a, b) {
-            let calculation = Calculation.Create(a, b, Difference);
-            return calculation;
-        }
-This Calculator class has other subclasses wrapped within it. There are multiple subclasses used here, one for each operation.
-For example, the static Sum class is used only to find the sum of two numbers. 
 
 **Behavioral**
 
 *Strategy:* Allows you to create different classes for specific objects.
 The main class that you create should just reference the other classes or strategies in the code.
 
-    class City {
-        constructor(data = null) {
-            if(data) {
-                this.id = data.id;
-                this.city = data.city;
-                this.city_ascii = data.city_ascii;
-                this.lat = data.lat;
-            }
+    class Calculation {
+        constructor(a, b, op) { 
+            this.a = a;
+            this.b = b; 
+            this.op = op;
         }
-    }  
-This class references several strategies, such as this.city_ascii.  
+        getResults() { 
+            return this.op(this.a, this.b); 
+        }
+    }
+        
 
 
 **5 SOLID Javascript Principles:** 
